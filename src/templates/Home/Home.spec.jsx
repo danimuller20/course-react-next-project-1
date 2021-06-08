@@ -38,7 +38,6 @@ const handlers = [
 const server = setupServer(...handlers);
 
 describe('<Home />', () => {
-
   beforeAll(() => {
     server.listen();
   });
@@ -56,7 +55,7 @@ describe('<Home />', () => {
     expect.assertions(3);
 
     await waitForElementToBeRemoved(noMorePosts);
-    
+
     const search = screen.getByPlaceholderText(/type your search/i);
     expect(search).toBeInTheDocument();
 
@@ -98,7 +97,6 @@ describe('<Home />', () => {
   it('should load more posts when clicking the button', async () => {
     render(<Home />);
     const noMorePosts = screen.getByText('Não existem posts =(');
-
 
     await waitForElementToBeRemoved(noMorePosts);
 
